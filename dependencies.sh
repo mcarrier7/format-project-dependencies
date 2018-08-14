@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # space-separated group id's for the dependency libraries that should be considered internal projects, rather than called external
-INTERNAL_GROUP_IDS="mil.nga.giat"
+INTERNAL_GROUP_IDS=""
 
 EFFECTIVE_POM_NAME="effective_pom.xml"
 WORKSPACE="$1"
@@ -23,7 +23,7 @@ TEMP_MESSAGES_FILE=$FORMAT_MAVEN_DEPENDENCIES_DIR"/.messages.tmp"
 MAVEN_COMMAND="mvn help:effective-pom --log-file $TEMP_MESSAGES_FILE -Doutput=$EFFECTIVE_POM_NAME"
 
 # list the projects to be visited, respective of the main level specified in "$FORMAT_MAVEN_DEPENDENCIES_DIR"
-declare -a arr=( "analytics" )
+declare -a arr=( "" )
 
 if [ ! -e $FORMAT_DEPENDENCIES_DIR ]
 then
